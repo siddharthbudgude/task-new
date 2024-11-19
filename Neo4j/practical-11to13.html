@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+Below are the Cypher queries you can use for the given Neo4j practical assignment. These queries assume you have nodes and relationships in your Neo4j database representing people, books, publishers, songs, record companies, artists, and studios.
+11. Library Database
+i. List all people who have issued a book with title “……”
+MATCH (person:Person)-[:ISSUED]->(book:Book {title: "……"})
+RETURN person.name;
+
+ii. Count the number of people who have read “……”
+MATCH (person:Person)-[:READ]->(book:Book {title: "……"})
+RETURN COUNT(person) AS numberOfPeople;
+
+iii. Add a property “Number of books issued” for Mr. Joshi and set its value as the count
+MATCH (person:Person {name: "Mr. Joshi"})-[:ISSUED]->(book:Book)
+WITH person, COUNT(book) AS numberOfBooksIssued
+SET person.numberOfBooksIssued = numberOfBooksIssued;
+
+iv. List the names of publishers from Pune city
+MATCH (publisher:Publisher {city: "Pune"})
+RETURN publisher.name;
+
+12. Song Database
+i. List the names of songs written by “……”
+MATCH (song:Song)-[:WRITTEN_BY]->(writer:Artist {name: "……"})
+RETURN song.title;
+
+ii. List the names of record companies who have financed the song “……”
+MATCH (recordCompany:RecordCompany)-[:FINANCED]->(song:Song {title: "……"})
+RETURN recordCompany.name;
+
+iii. List the names of artists performing the song “……”
+MATCH (song:Song {title: "……"})<-[:PERFORMED_BY]-(artist:Artist)
+RETURN artist.name;
+
+iv. Name the songs recorded by the studio “……”
+MATCH (studio:Studio {name: "……"})<-[:RECORDED_AT]-(song:Song)
+RETURN song.title;
+
+13. Library Database
+a) List all readers who have recommended either book “…” or “……..” or “…”
+MATCH (reader:Person)-[:RECOMMENDED]->(book:Book)
+WHERE book.title IN ["…", "……..", "…"]
+RETURN reader.name;
+
+b) List the readers who haven’t recommended any book
+MATCH (reader:Person)
+WHERE NOT (reader)-[:RECOMMENDED]->(:Book)
+RETURN reader.name;
+
+c) List the authors who have written a book that has been read/issued by the maximum number of readers
+MATCH (author:Author)-[:WRITTEN]->(book:Book)<-[:READ|ISSUED]-(reader:Person)
+WITH author, COUNT(DISTINCT reader) AS readerCount
+ORDER BY readerCount DESC
+RETURN author.name, readerCount
+LIMIT 1;
+
+d) List the names of books recommended by “......................” and read by at least one reader
+MATCH (recommender:Person {name: "......................"})-[:RECOMMENDED]->(book:Book)<-[:READ]-(reader:Person)
+RETURN DISTINCT book.title;
+
+e) List the names of books recommended by “......................” and read by maximum number of readers
+MATCH (recommender:Person {name: "......................"})-[:RECOMMENDED]->(book:Book)<-[:READ]-(reader:Person)
+WITH book, COUNT(DISTINCT reader) AS readerCount
+ORDER BY readerCount DESC
+RETURN book.title, readerCount
+LIMIT 1;
+
+f) List the names of publishers who haven’t published any books written by authors from Pune and Mumbai
+MATCH (publisher:Publisher)-[:PUBLISHED]->(book:Book)<-[:WRITTEN_BY]-(author:Author)
+WHERE NOT (author)-[:FROM]->(:City {name: "Pune"}) AND NOT (author)-[:FROM]->(:City {name: "Mumbai"})
+RETURN DISTINCT publisher.name;
+
+g) List the names of voracious readers in our library (i.e., those who have read the most books)
+MATCH (reader:Person)-[:READ]->(book:Book)
+WITH reader, COUNT(DISTINCT book) AS booksRead
+ORDER BY booksRead DESC
+RETURN reader.name, booksRead
+LIMIT 10;  // Adjust the limit as needed to find the top readers
+
+</body>
+</html>
