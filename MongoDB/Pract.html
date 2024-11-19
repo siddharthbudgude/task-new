@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+
+  <h4>
+    Q.1.Create a Employee collection with mentioned fields Employee
+    (eno,ename,salary,desig,dept:{deptno,deptname,location}, project:{pname,hrs})
+  </h4>
+  <p>
+    Query:- db.Employee.insertMany({})
+  </p>
+
+
+  <h4>Q.2. Insert 10 documents in Employee collection.</h4>
+  <p>
+    Query:-
+    db.employee.insertMany([
+
+    {
+    "eno": 1,
+    "ename": "Sam",
+    "salary": 60000,
+    "desig": "Manager",
+    "dept": {
+    "deptno": 101,
+    "deptname": "Sales",
+    "location": "New York"
+    },
+    "project": [
+    {"pname": "ProjectA", "hrs": 5},
+    {"pname": "ProjectB", "hrs": 6}
+    ]
+    },
+
+    {
+    "eno": 2,
+    "ename": "Alice",
+    "salary": 70000,
+    "desig": "Senior Developer",
+    "dept": {
+    "deptno": 102,
+    "deptname": "Engineering",
+    "location": "San Francisco"
+    },
+    "project": [
+    {"pname": "ProjectC", "hrs": 7},
+    {"pname": "ProjectD", "hrs": 8}
+    ]
+    },
+
+    {
+    "eno": 3,
+    "ename": "Bob",
+    "salary": 50000,
+    "desig": "Junior Developer",
+    "dept": {
+    "deptno": 103,
+    "deptname": "Engineering",
+    "location": "San Francisco"
+    },
+    "project": [
+    {"pname": "ProjectE", "hrs": 4}
+    ]
+    },
+
+    {
+    "eno": 4,
+    "ename": "Carol",
+    "salary": 65000,
+    "desig": "Marketing Specialist",
+    "dept": {
+    "deptno": 104,
+    "deptname": "Marketing",
+    "location": "Chicago"
+    },
+    "project": [
+    {"pname": "ProjectF", "hrs": 6},
+    {"pname": "ProjectG", "hrs": 5}
+    ]
+    },
+
+    {
+    "eno": 5,
+    "ename": "Dave",
+    "salary": 55000,
+    "desig": "Sales Executive",
+    "dept": {
+    "deptno": 101,
+    "deptname": "Sales",
+    "location": "New York"
+    },
+    "project": [
+    {"pname": "ProjectH", "hrs": 6}
+    ]
+    },
+
+    {
+    "eno": 6,
+    "ename": "Eve",
+    "salary": 72000,
+    "desig": "Product Manager",
+    "dept": {
+    "deptno": 105,
+    "deptname": "Product",
+    "location": "Boston"
+    },
+    "project": [
+    {"pname": "ProjectI", "hrs": 8},
+    {"pname": "ProjectJ", "hrs": 7}
+    ]
+    },
+
+    {
+    "eno": 7,
+    "ename": "Frank",
+    "salary": 58000,
+    "desig": "Data Analyst",
+    "dept": {
+    "deptno": 106,
+    "deptname": "Data Science",
+    "location": "Seattle"
+    },
+    "project": [
+    {"pname": "ProjectK", "hrs": 5},
+    {"pname": "ProjectL", "hrs": 4}
+    ]
+    },
+
+    {
+    "eno": 8,
+    "ename": "Grace",
+    "salary": 62000,
+    "desig": "HR Specialist",
+    "dept": {
+    "deptno": 107,
+    "deptname": "Human Resources",
+    "location": "Atlanta"
+    },
+    "project": [
+    {"pname": "ProjectM", "hrs": 6}
+    ]
+    },
+
+    {
+    "eno": 9,
+    "ename": "Hank",
+    "salary": 53000,
+    "desig": "Graphic Designer",
+    "dept": {
+    "deptno": 108,
+    "deptname": "Design",
+    "location": "Los Angeles"
+    },
+    "project": [
+    {"pname": "ProjectN", "hrs": 7}
+    ]
+    },
+
+    {
+    "eno": 10,
+    "ename": "Ivy",
+    "salary": 69000,
+    "desig": "Systems Analyst",
+    "dept": {
+    "deptno": 109,
+    "deptname": "IT",
+    "location": "Dallas"
+    },
+
+    "project": [
+    {"pname": "ProjectO", "hrs": 5},
+    {"pname": "ProjectP", "hrs": 6}
+    ]
+    }
+    ]);
+
+  </p>
+
+  <h4>Q.3. Display all the documents from Employee collection.</h4>
+  <p> Query:- db.employee.find().pretty()</p>
+
+  <br><br>
+
+  <h4>Q.4. Display all employees whose name starts with “S”</h4>
+  <p>Query:- db.employee.find({ ename: /^S/ }).pretty()</p>
+
+  <br><br>
+
+  <h4>Q.5. Display all employee with designation manager.</h4>
+  <p>Query:-db.employee.find({ desig: 'Manager' }).pretty()</p>
+
+  <br><br>
+
+  <h4>Q.6. Display all employee with salary>50000 and salary  < 80000. </h4>
+  <p>Query:- db.employee.find({ salary: { $gt: 50000, $lt: 80000 } }).pretty()</p>
+
+  <br><br>
+
+  <h4>Q.7.Update no. of hrs to 7 for pname=______</h4>
+  <p>Query:-db.employee.updateMany(
+    { "project.pname": "ProjectA" },
+    { $set: { "project.$[elem].hrs": 7 } },
+    { arrayFilters: [{ "elem.pname": "ProjectA" }])
+  </p>
+
+  <br><br>
+
+  <h4>Q.8. . Add bonus Rs. 5000 for all employees with salary >50000 and salary < 150000. </h4>
+   <p>Query:-db.employee.updateMany(
+        { salary: { $gt: 50000, $lt: 150000 } },
+        { $inc: { salary: 5000 } }
+        )
+   </p>
+
+      <br><br>
+
+      <h4>Q.9. Increase salary by 20% of employees working in deptname=________ </h4>
+      <p>Query:-db.employee.updateMany(
+        { "dept.deptname": "Engineering" },
+        { $mul: { salary: 1.20 } }
+        )
+      </p>
+
+      <br><br>
+
+      <h4>Q.10. Remove all employees working on pname=________ </h4>
+      <p>Query: db.Employee.deleteMany([“project.pname”:”ProjectN”]);</p>
+
+
+</body>
+
+</html>
