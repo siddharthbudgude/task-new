@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<!-- <h1>Slip one</h1> -->
+Q.1) Python program that demonstrates the hill climbing algorithm to find the maximum of a
+mathematical function.(For example f(x) = -x^2 + 4x) [ 10Marks ]
+
+==> Code
+
+def hill_climbing(func, start, step, max_iter):
+    x = start
+    for _ in range(max_iter):
+        left, right = func(x - step), func(x + step)
+        if left > func(x): x -= step
+        elif right > func(x): x += step
+        else: break
+    return x, func(x)
+
+# Function to maximize
+f = lambda x: -x**2 + 4*x
+
+# Parameters
+start, step, max_iter = 1.0, 0.1, 100
+
+best_x, best_y = hill_climbing(f, start, step, max_iter)
+print(f"Maximum at x = {best_x:.2f}, f(x) = {best_y:.2f}")
+
+Q.2) Write a Python program to implement Depth First Search algorithm. Refer the following graph
+as an Input for the program. [Initial node=1,Goal node=8] [ 20 Marks ]
+
+==> Code
+ def dfs(graph, start, goal, visited=set()):
+    if start == goal:
+        print(f"Goal node {goal} found!")
+        return True
+    visited.add(start)
+    for neighbor in graph[start]:
+        if neighbor not in visited and dfs(graph, neighbor, goal, visited):
+            return True
+    return False
+
+# Graph as adjacency list
+graph = {1: [2, 3], 2: [4, 5], 3: [6], 4: [], 5: [8], 6: [7], 7: [], 8: []}
+
+# Perform DFS
+if not dfs(graph, 1, 8):
+    print("Goal node not reachable.")
+
+
+<!-- <h1>Slipo 2 program</h1> -->
+Q.4) Write a python program to generate Calendar for the given month and year?. [ 10 Marks ]
+
+input- 	import calendar
+
+import calendar
+year = int(input("Enter the year:"))
+month = int(input("Enter the month:"))
+
+#print the calendar for the given month and year
+print(calendar.month(year,month))
+
+Q.4))Write a Python program to implement Depth First Search algorithm. Refer the following graph
+as an Input for the program.[Initial node=1,Goal node=7]
+input - 
+
+
+
+
+
+</body>
+</html>
