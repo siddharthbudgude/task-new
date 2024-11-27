@@ -1,0 +1,318 @@
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 1 --------------------
+Q.1) Python program that demonstrates the hill climbing algorithm to find the maximum of a
+mathematical function.(For example f(x) = -x^2 + 4x) [ 10Marks ]
+
+input - def hill_climbing(func, start, step, max_iter):
+    x = start
+    for _ in range(max_iter):
+        left, right = func(x - step), func(x + step)
+        if left > func(x): x -= step
+        elif right > func(x): x += step
+        else: break
+    return x, func(x)
+
+# Function to maximize
+f = lambda x: -x**2 + 4*x
+
+# Parameters
+start, step, max_iter = 1.0, 0.1, 100
+
+best_x, best_y = hill_climbing(f, start, step, max_iter)
+print(f"Maximum at x = {best_x:.2f}, f(x) = {best_y:.2f}")
+
+
+Q.2) Write a Python program to implement Depth First Search algorithm. Refer the following graph
+as an Input for the program. [Initial node=1,Goal node=8] [ 20 Marks ]
+input -  def dfs(graph, start, goal, visited=set()):
+    if start == goal:
+        print(f"Goal node {goal} found!")
+        return True
+    visited.add(start)
+    for neighbor in graph[start]:
+        if neighbor not in visited and dfs(graph, neighbor, goal, visited):
+            return True
+    return False
+
+# Graph as adjacency list
+graph = {1: [2, 3], 2: [4, 5], 3: [6], 4: [], 5: [8], 6: [7], 7: [], 8: []}
+
+# Perform DFS
+if not dfs(graph, 1, 8):
+    print("Goal node not reachable.")
+
+-------------------------- Slip 2 --------------------
+Q.1) Write a python program to generate Calendar for the given month and year?. [ 10 Marks ]
+input- 
+Q.2)Write a Python program to implement Depth First Search algorithm. Refer the following graph
+as an Input for the program.[Initial node=1,Goal node=7]. [ 20 Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 3 --------------------
+Q.1) Write a python program to remove punctuations from the given string? .[ 10 marks ]
+Q.2) Write a Python program to implement Depth First Search algorithm. Refer the following graph
+as an Input for the program.[Initial node=2,Goal node=7] [ 20 Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 4 --------------------
+Q.1)Write a program to implement Hangman game using python. [10 Marks]
+Description:
+Hangman is a classic word-guessing game. The user should guess the word correctly by
+entering alphabets of the user choice. The Program will get input as single alphabet from the
+user and it will matchmaking with the alphabets in the original
+Q.2) Write a Python program to implement Breadth First Search algorithm. Refer the following
+graph as an Input for the program.[Initial node=1,Goal node=8] [ 20 Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 5 --------------------
+Q.1) Write a python program to implement Lemmatization using NLTK [ 10 Marks ]
+Q.2) Write a Python program to implement Breadth First Search algorithm. Refer the following
+graph as an Input for the program.[Initial node=1,Goal node=8] [ 20 Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 6 --------------------
+Q.1) Write a python program to remove stop words for a given passage from a text file using
+NLTK?. [ 10 Marks ]
+Q.2) Write a Python program to implement Breadth First Search algorithm. Refer the following
+graph as an Input for the program.[Initial node=1,Goal node=8]. [20Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 7 --------------------
+Q.1)Write a python program implement tic-tac-toe using alpha beeta pruning[10 Marks]
+Q.2) Write a Python program to implement Simple Chatbot. [ 20Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 8 --------------------
+Q.1) Write a Python program to accept a string. Find and print the number of upper case alphabets
+and lower case alphabets. [ 10 Marks ]
+Q.2) Write a Python program to solve tic-tac-toe problem. [ 20 Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 9 --------------------
+Q.1) Write python program to solve 8 puzzle problem using A* algorithm [10 marks]
+Q.2) Write a Python program to solve water jug problem. 2 jugs with capacity 5 gallon and 7 gallon
+are given with unlimited water supply respectively. The target to achieve is 4 gallon of water in
+second jug. [ 15 Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 10 --------------------
+Q.1) Write Python program to implement crypt arithmetic problem
+TWO+TWO=FOUR [ 10 Marks ]
+Q.2) Write a Python program to implement Simple Chatbot. [ 20 Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 11 --------------------
+Q.1) Write a python program using mean end analysis algorithmproblem of transforming a string of
+lowercase letters into another string. [ 10 Marks ]
+Q.2) Write a Python program to solve water jug problem. Two jugs with capacity 4 gallon and 3
+gallon are given with unlimited water supply respectively. The target is to achieve 2 gallon of
+water in second jug. [ 20 Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 12 --------------------
+Q.1) Write a python program to generate Calendar for the given month and year?. [ 10Marks ]
+Q.2)Write a Python program to simulate 4-Queens problem. [ 20Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 13 --------------------
+Q.1Write a Python program to implement Mini-Max Algorithm. [ 10 Marks ]
+Q.2) Write a Python program to simulate 8-Queens problem. [ 20 Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 14 --------------------
+Q.1) Write a python program to sort the sentence in alphabetical order?
+[ 10Marks ]
+Q.2) Write a Python program to simulate n-Queens problem. [ 20Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 15 --------------------
+Q.1)Write a Program to Implement Monkey Banana Problem using Python [ 10 Marks ]
+Q.2) Write a program to implement Iterative Deepening DFS algorithm. [20 Marks ]
+[ Goal Node =G]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 16 --------------------
+Q.1) Write a Program to Implement Tower of Hanoi using Python [ 10 Marks ]
+Q.2) Write a Python program to solve tic-tac-toe problem. [ 15 Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 17 --------------------
+Q.1) Python program that demonstrates the hill climbing algorithm to find the maximum of a
+mathematical function. [ 10Marks ]
+Q.2) Write a Python program to implement A* algorithm. Refer the following graph as an Input for
+the program.[ Start vertex is A and Goal Vertex is G] [ 20 Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 18 --------------------
+Q.1).Write a python program to remove stop words for a given passage from a text file using
+NLTK?. [ 10Marks ]
+Q.2) Implement a system that performs arrangement of some set of objects in a room. Assume that
+you have only 5 rectangular, 4 square-shaped objects. Use A* approach for the placement of
+the objects in room for efficient space utilisation. Assume suitable heuristic, and dimensions of
+objects and rooms. (Informed Search) [ 20 Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 19 --------------------
+Q.1) Write a program to implement Hangman game using python.
+Description:
+Hangman is a classic word-guessing game. The user should guess the word correctly by
+entering alphabets of the user choice. The Program will get input as single alphabet from the
+user and it will matchmaking with the alphabets in the original word.
+[ 10 Marks ]
+Q.2) Write a Python program to implement A* algorithm. Refer the following graph as an Input for
+the program. [ 20 Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 20 --------------------
+Q.1) Build a bot which provides all the information related to you in college [ 10Marks ]
+Q.2) Write a Python program to implement Mini-Max Algorithm. [ 20Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 21 --------------------
+Q.1)Write a python program to remove punctuations from the given string?[ 10 Marks ]
+Q.2)Write a Python program for the following Cryptarithmetic problems. [ 20 Marks ]
+GO + TO = OUT
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 22 --------------------
+Q.1) Write a Program to Implement Alpha-Beta Pruning using Python [ 10 Marks ]
+Q.2) Write a Python program to implement Simple Chatbot[ 20 Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 23 --------------------
+Q.1) Write a Program to Implement Tower of Hanoi using Python. [ 10 Marks ]
+Q.2) Write a Python program for the following Cryptarithmetic problems
+SEND + MORE = MONEY [ 20Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 24 --------------------
+Q.1)Write a python program to sort the sentence in alphabetical order?
+[ 10 Marks ]
+Q.2) Write a Python program for the following Cryptorithmetic problems
+CROSS+ROADS = DANGER [ 20Marks ]
+Q.3) Viva [ 5 Marks ]
+SAVITIBAI PHULE UNIVERSITY
+M.Sc.(Computer Science) Sem-I
+Practical Examination (From 2023-2024)
+SUBJECT: CS-505-MJP: Lab Course on CS-502-MJ (Artificial Intelligence)
+Time: 3 Hours Max. Marks: 35
+____________________________________________________________________
+-------------------------- Slip 25 --------------------
+Q.1). Build a bot which provides all the information related to you in college [10 Marks ]
+Q.2) Write a Python program to solve 8-puzzle problem. [ 20 Marks ]
+Q.3) Viva [ 5 Marks ]
